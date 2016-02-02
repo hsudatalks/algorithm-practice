@@ -17,9 +17,31 @@ def bubble_sort(elements):
                 swap(elements, left, right)
 
 
+def insertion_sort(elements):
+    # insert to a new list
+    result = []
+
+    for x in elements:
+        if len(result) > 0:
+            for pos in range(0, len(result)+1):
+                if pos == len(result):
+                    result.append(x)
+                elif x < result[pos]:
+                    result.insert(pos, x)
+                    break
+        else:
+            result.append(x)
+
+    return result
+
+
 def testing():
     record1 = [86, 33, 92, 58, 9, 12, 445, 87]
+    print insertion_sort(record1)
+
     bubble_sort(record1)
     print "Bubble Sort:" + str(record1) + "!"
+
+
 
 testing()
